@@ -3,7 +3,7 @@
 Babel can provide polyfills for your env but also only provide polyfills that are _actually used_. This is pretty awesome as it can 
 reduce your bundle file size.
 
-This can be achieved with the options `"useBuiltIns": "usage"` for the `@babel/env` preset. 
+This can be achieved with the options [`"useBuiltIns": "usage"`](https://github.com/babel/babel/tree/master/experimental/babel-preset-env#usebuiltins-usage) for the `@babel/env` preset. 
 
 Additionally, we can use the `transform-runtime` plugin to transform polyfills to the local module scope, to avoid potential 
 global conflicts. This will not work for instance methods though, eg `String.prototype.includes`, and so Babel will provide 
@@ -13,7 +13,7 @@ Additionally, now that Babel can provide polyfills based on usage, we want to av
 configure the `transform-object-rest-spread` plugin to use builtIns: `"useBuiltIns": true`. The results in the plugin using 
 `Object.assign` instead of `_extends` (and then `Object.assign` might be pollyfilled based on your env).
 
-Unfortunately I haven't found a nice solution for polyfilling browser/DOM specific features like `fetch`.
+I haven't found a nice automatic solution for polyfilling browser/DOM specific features like `fetch`.
 
 Input:
 
